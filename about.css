@@ -18,6 +18,12 @@ h1 {
     margin-top: 40px;
   }
 
+p {
+    text-align: center;
+    color: #C8A582;
+    margin-top: 40px;
+  } 
+
 .Discard-button {
     position: fixed;
     top: 16px;
@@ -37,3 +43,16 @@ h1 {
   .Discard-button:hover {
     transform: scale(1.05);
   }
+
+.Aboutbutton {
+    display: block;
+    margin: 20px auto;
+    width: 80px;
+    height: 80px;
+}
+
+.Credit-text {
+    text-align: center;
+    color: #C8A582;
+    font-size: 50px;
+}
