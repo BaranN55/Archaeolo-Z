@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("../assets/Mainbg.jpeg");
+    font-family: "Caesar Dressing", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.Startcomponents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-size: 60px;
+  }
+
+.Start-button {
+    display: inline-block;
+    width: 450px;
+    height: 150px;
+    background-image: url("../assets/sb.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    gap: 2px;
+  }
+  
+  .Start-button:hover {
+    transform: scale(1.05);
+  }
+  .About-button {
+    display: inline-block;
+    width: 280px;
+    height: 87.75px;
+    background-image: url("../assets/ib.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    gap: 2px;
+  }
+  .About-button:hover {
+    transform: scale(1.05);
+  }
+  .Cred-button {
+    display: inline-block;
+    width: 280px;
+    height: 87.75px;
+    background-image: url("../assets/cb.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    gap: 2px;
+  }
+  .Cred-button:hover {
+    transform: scale(1.05);
+  }
+
+.Start-button,
+.About-button,
+.Cred-button {
+  margin: 2px 0;
+}
+  
