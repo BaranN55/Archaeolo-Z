@@ -2,24 +2,26 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-image:url("../assets/Aboutbg.png");
+    background-image: url("../assets/Aboutbg.png");
+    background-size: cover;
+    background-position: center;
     font-family: "Caesar Dressing", system-ui;
     font-weight: 400;
     font-style: normal;
     font-size: 30px;
+    color: #C8A582;
   }
 
-  .h1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    color: #7B4C19;
+h1 {
+    text-align: center;
+    color: #C8A582;
+    margin-top: 40px;
   }
 
 .Discard-button {
+    position: fixed;
+    top: 16px;
+    right: 16px;
     display: inline-block;
     width: 50px;
     height: 50px;
@@ -30,7 +32,6 @@ body {
     text-decoration: none;
     cursor: pointer;
     transition: transform 0.2s ease;
-    gap: 2px;
   }
   
   .Discard-button:hover {
