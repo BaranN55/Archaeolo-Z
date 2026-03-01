@@ -61,14 +61,14 @@
             border-radius: 8px;
         }
         .nav-btn:hover { transform: scale(1.1); }
-        .nav-btn-coin    { background-image: url("../assets/coin.png"); }
-        .nav-btn-collect { background-image: url("../assets/Collects.png"); }
-        .nav-btn-tool    { background-image: url("../assets/Tools.png"); }
+        .nav-btn-coin    { background-image: url("assets/coin.png"); }
+        .nav-btn-collect { background-image: url("assets/Collects.png"); }
+        .nav-btn-tool    { background-image: url("assets/Tools.png"); }
     `;
     document.head.appendChild(style);
 
-    const coinSound  = new Audio('../assets/coinsound.mp3');
-    const clickSound = new Audio('../assets/clicksound.mp3');
+    const coinSound  = new Audio('assets/coinsound.mp3');
+    const clickSound = new Audio('assets/clicksound.mp3');
 
     // Play sound then navigate after short delay so sound has time to fire
     function playAndGo(sound, href) {

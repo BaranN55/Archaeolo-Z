@@ -3,7 +3,7 @@
 // The music resumes from the same position when navigating between pages.
 
 (function () {
-    const AUDIO_SRC = '../assets/themesong.mp3';
+    const AUDIO_SRC = 'assets/themesong.mp3';
     const POS_KEY   = 'music_pos';
     const MUTED_KEY = 'music_muted';
 
@@ -100,7 +100,7 @@
 })();
 // ── Global click sounds for Discard buttons (runs on every page) ──
 (function () {
-    const clickSnd = new Audio('../assets/clicksound.mp3');
+    const clickSnd = new Audio('assets/clicksound.mp3');
 
     function attachDiscardSounds() {
         document.querySelectorAll('.Discard-button').forEach(btn => {

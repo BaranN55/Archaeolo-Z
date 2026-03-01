@@ -8,8 +8,8 @@ const drillImg      = document.getElementById('drill-img');
 const nextBgOverlay = document.getElementById('next-bg-overlay');
 const needToolMsg   = document.getElementById('need-tool-msg');
 
-const DRILL_UP   = '../assets/drill1.png';
-const DRILL_DOWN = '../assets/drill2.png';
+const DRILL_UP   = 'assets/drill1.png';
+const DRILL_DOWN = 'assets/drill2.png';
 const TOTAL_PRESSES = 5;
 
 let flashTimer    = null;
@@ -18,8 +18,8 @@ let drillPresses  = 0;
 let drillSwinging = false;
 let drillDone     = false;
 
-const drillSound = new Audio('../assets/drillsound.mp3');
-const clickSound = new Audio('../assets/clicksound.mp3');
+const drillSound = new Audio('assets/drillsound.mp3');
+const clickSound = new Audio('assets/clicksound.mp3');
 
 // ── Flash message ─────────────────────────────────────────────
 function showFlash(msg) {

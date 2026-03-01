@@ -2,7 +2,7 @@
 
 const grid     = document.getElementById('items-grid');
 const emptyMsg = document.getElementById('empty-msg');
-const purchaseSound = new Audio('../assets/purchasesound.mp3');
+const purchaseSound = new Audio('assets/purchasesound.mp3');
 
 function buildCards() {
     const collected = GameState.getCollected();
@@ -30,7 +30,7 @@ function buildCards() {
         if (sellable) {
             priceSection = `
                 <div class="item-price">
-                    <img src="../assets/coin.png" alt="coin">
+                    <img src="assets/coin.png" alt="coin">
                     ${item.coins}
                 </div>
                 <button class="sell-btn ${sold ? 'sold' : 'can-sell'}" data-id="${id}">

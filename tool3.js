@@ -3,7 +3,7 @@
 const grid       = document.getElementById('tools-grid');
 const noCoinsMsg = document.getElementById('no-coins-msg');
 
-const purchaseSound = new Audio('../assets/purchasesound.mp3');
+const purchaseSound = new Audio('assets/purchasesound.mp3');
 
 function buildTools() {
     grid.innerHTML = '';
@@ -28,7 +28,7 @@ function buildTools() {
             <div class="tool-name">${tool.name}</div>
             <div class="tool-desc">${tool.description}</div>
             <div class="tool-price">
-                <img src="../assets/coin.png" alt="coin">
+                <img src="assets/coin.png" alt="coin">
                 ${tool.coins}
             </div>
             <button class="buy-btn ${btnClass}" data-id="${tool.id}">

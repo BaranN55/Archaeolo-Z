@@ -5,7 +5,7 @@ const stageReveal = document.getElementById('stage-reveal');
 const boxImg      = document.getElementById('box-img');
 let boxOpened     = false;
 
-const clickSound = new Audio('../assets/clicksound.mp3');
+const clickSound = new Audio('assets/clicksound.mp3');
 
 boxImg.addEventListener('click', () => {
     if (boxOpened) return;
@@ -14,7 +14,7 @@ boxImg.addEventListener('click', () => {
     boxOpened = true;
 
     // Swap to open box image
-    boxImg.src = '../assets/bx2.png';
+    boxImg.src = 'assets/bx2.png';
 
     // After a beat, fade out box and show reveal
     setTimeout(() => {

@@ -114,8 +114,8 @@ const axeIntroText = document.getElementById('axe-intro-text');
 const axeImg       = document.getElementById('axe-img');
 const nextBgOverlay = document.getElementById('next-bg-overlay');
 
-const AXE_UP   = '../assets/Axeup.png';
-const AXE_DOWN = '../assets/Axedown.png';
+const AXE_UP   = 'assets/Axeup.png';
+const AXE_DOWN = 'assets/Axedown.png';
 const AXE_TOTAL = 5;
 
 let axePhase    = false;
@@ -123,7 +123,7 @@ let axePresses  = 0;
 let axeSwinging = false;
 let axeDone     = false;
 
-const axeSound = new Audio('../assets/axesound.mp3');
+const axeSound = new Audio('assets/axesound.mp3');
 
 function startAxePhase() {
     // Fade out paper
@@ -144,7 +144,7 @@ document.addEventListener('keydown', (e) => {
 
     axeSound.currentTime = 0;
     axeSound.play();
-    
+
     axeSwinging = true;
     axePresses++;
 

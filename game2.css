@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-image: url("../assets/L2bg.png");
+    background-image: url("assets/L2bg.png");
     background-size: cover;
     background-position: center;
     font-family: "Caesar Dressing", system-ui;
@@ -15,7 +15,7 @@ body {
 #next-bg-overlay {
     position: fixed;
     inset: 0;
-    background-image: url("../assets/L3bg.png");
+    background-image: url("assets/L3bg.png");
     background-size: cover;
     background-position: center;
     opacity: 0;
@@ -134,7 +134,7 @@ body {
 }
 .Coin-button {
     display: inline-block; width: 80px; height: 80px;
-    background-image: url("../assets/coin.png");
+    background-image: url("assets/coin.png");
     background-size: cover; background-position: center;
     background-repeat: no-repeat; text-decoration: none;
     cursor: pointer; transition: transform 0.2s ease;
@@ -142,7 +142,7 @@ body {
 .Coin-button:hover { transform: scale(1.1); }
 .Collect-button {
     display: inline-block; width: 80px; height: 80px;
-    background-image: url("../assets/Collects.png");
+    background-image: url("assets/Collects.png");
     background-size: cover; background-position: center;
     background-repeat: no-repeat; text-decoration: none;
     cursor: pointer; transition: transform 0.2s ease;
@@ -150,7 +150,7 @@ body {
 .Collect-button:hover { transform: scale(1.1); }
 .Tools-button {
     display: inline-block; width: 80px; height: 80px;
-    background-image: url("../assets/Tools.png");
+    background-image: url("assets/Tools.png");
     background-size: cover; background-position: center;
     background-repeat: no-repeat; text-decoration: none;
     cursor: pointer; transition: transform 0.2s ease;

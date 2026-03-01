@@ -10,10 +10,10 @@ const introText   = document.getElementById('intro-text');
 const sideButtons = document.getElementById('side-buttons');
 
 // Pickaxe images - up = resting, down = swinging
-const PICKAXE_UP   = '../assets/Axeup.png';
-const PICKAXE_DOWN = '../assets/Axedown.png';
+const PICKAXE_UP   = 'assets/Axeup.png';
+const PICKAXE_DOWN = 'assets/Axedown.png';
 
-const axeSound = new Audio('../assets/axesound.mp3');
+const axeSound = new Audio('assets/axesound.mp3');
 
 document.addEventListener('keydown', (e) => {
     if (e.code !== 'Space') return;

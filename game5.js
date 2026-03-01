@@ -9,7 +9,7 @@ const MARS_COIN_TARGET = 1350;
 let flashTimer = null;
 let marsTriggered = false;
 
-const clickSound = new Audio('../assets/clicksound.mp3');
+const clickSound = new Audio('assets/clicksound.mp3');
 
 // ── Flash message ─────────────────────────────────────────────
 function showFlash(msg) {
@@ -97,7 +97,7 @@ setTimeout(() => {
         bgMusic.pause();
         bgMusic.currentTime = 0;
     }
-    const endSound = new Audio('../assets/endsound.mp3');
+    const endSound = new Audio('assets/endsound.mp3');
     endSound.play();
 
     const marsOverlay = document.getElementById('mars-overlay');

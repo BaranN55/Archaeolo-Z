@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-image: url("../assets/Grassbg.png");
+    background-image: url("assets/Grassbg.png");
     background-size: cover;
     background-position: center;
     font-family: "Caesar Dressing", system-ui;
@@ -15,7 +15,7 @@ body {
 #bg-overlay {
     position: fixed;
     inset: 0;
-    background-image: url("../assets/L1bg.png");
+    background-image: url("assets/L1bg.png");
     background-size: cover;
     background-position: center;
     opacity: 0;
@@ -72,7 +72,7 @@ body {
     display: inline-block;
     width: 80px;
     height: 80px;
-    background-image: url("../assets/coin.png");
+    background-image: url("assets/coin.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -87,7 +87,7 @@ body {
     display: inline-block;
     width: 80px;
     height: 80px;
-    background-image: url("../assets/Collects.png");
+    background-image: url("assets/Collects.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -102,7 +102,7 @@ body {
     display: inline-block;
     width: 80px;
     height: 80px;
-    background-image: url("../assets/Tools.png");
+    background-image: url("assets/Tools.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -47,7 +47,7 @@ const ITEMS = {
     matcha: {
         id: 'matcha',
         name: 'Matcha',
-        image: '../assets/Matcha.png',
+        image: 'assets/Matcha.png',
         description: 'A drink or a sip of feeling better than others? This earthy drink had the generation captive on who liked it and who was just performing.',
         coins: 100,
         sellable: true
@@ -55,7 +55,7 @@ const ITEMS = {
     sbag: {
         id: 'sbag',
         name: 'Sephora Bag',
-        image: '../assets/Sbag.png',
+        image: 'assets/Sbag.png',
         description: 'Get your glam ladies! Well I mean 10 year olds absolutely needed retinol back then…right?',
         coins: 200,
         sellable: true
@@ -63,7 +63,7 @@ const ITEMS = {
     six7: {
         id: 'six7',
         name: '"67"',
-        image: '../assets/six7.png',
+        image: 'assets/six7.png',
         description: '"67" had no fixed meaning. Its power came from being meaningless — repeated so often it became one of the most iconic expressions of Gen Z\'s online language.',
         coins: 0,
         sellable: false
@@ -71,7 +71,7 @@ const ITEMS = {
     dubaic: {
         id: 'dubaic',
         name: 'Budai Chocolate',
-        image: '../assets/dubaic.png',
+        image: 'assets/dubaic.png',
         description: 'Originally a filled chocolate bar turned into well…anything and everything. If it exists, it can be budai chocolate.',
         coins: 250,
         sellable: true
@@ -79,7 +79,7 @@ const ITEMS = {
     ballerinac: {
         id: 'ballerinac',
         name: 'Ballerina Cappuccina',
-        image: '../assets/ballerinac.png',
+        image: 'assets/ballerinac.png',
         description: 'A viral, AI-generated "Italian brain rot" meme popular with children on TikTok; Ballerina cappuccina Mi Mi Miiiii.',
         coins: 350,
         sellable: true
@@ -87,7 +87,7 @@ const ITEMS = {
     lafufu: {
         id: 'lafufu',
         name: 'Lafufu',
-        image: '../assets/lafufu.png',
+        image: 'assets/lafufu.png',
         description: 'Old age? Time flying by? No no that wasn\'t the reason gen-z died, it was because of this thing. Beware :)',
         coins: 500,
         sellable: true
@@ -95,7 +95,7 @@ const ITEMS = {
     stanley: {
         id: 'stanley',
         name: 'Banley Cup',
-        image: '../assets/stanley.png',
+        image: 'assets/stanley.png',
         description: 'Stay hydrated! You\'ll need the water carrying this thing since it can never fit in anyone\'s bag. Also was known to cause explosions when dropped.',
         coins: 550,
         sellable: true
@@ -107,14 +107,14 @@ const TOOLS = {
     shovel: {
         id: 'shovel',
         name: 'Shovel',
-        image: '../assets/shovel1.png',
+        image: 'assets/shovel1.png',
         description: 'A trusty shovel to dig deeper into the earth. Required to reach the next level.',
         coins: 100
     },
     drill: {
         id: 'drill',
         name: 'Drill',
-        image: '../assets/drill1.png',
+        image: 'assets/drill1.png',
         description: 'A powerful drill that can break through solid rock. Required for the deepest levels.',
         coins: 500
     }

@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
-    <link rel="icon" type="image/png" href="../assets/logo.png">
+    <link rel="icon" type="image/png" href="assets/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -116,7 +116,7 @@
         /* ── 2. L3 background (replaces camera after fade) ── */
         #level-bg {
             position: fixed; inset: 0;
-            background-image: url("../assets/L3bg.png");
+            background-image: url("assets/L3bg.png");
             background-size: cover;
             background-position: center;
             opacity: 0;
@@ -191,7 +191,7 @@
         /* Next level bg fade during shovel */
         #next-bg {
             position: fixed; inset: 0;
-            background-image: url("../assets/L4bg.png");
+            background-image: url("assets/L4bg.png");
             background-size: cover;
             background-position: center;
             opacity: 0;
@@ -204,7 +204,7 @@
 <body>
 
     <!-- Camera -->
-    <img id="meme-ref" src="../assets/six7.png" alt="Mimic this">
+    <img id="meme-ref" src="assets/six7.png" alt="Mimic this">
     <video id="video" autoplay playsinline></video>
     <canvas id="output"></canvas>
 
@@ -233,7 +233,7 @@
     <!-- Step 4: Shovel -->
     <div id="shovel-overlay">
         <div id="shovel-text">Press Spacebar 5 times to dig deeper!</div>
-        <img id="shovel-img" src="../assets/shovel1.png" alt="Shovel">
+        <img id="shovel-img" src="assets/shovel1.png" alt="Shovel">
     </div>
 
     <script src="gamestate.js"></script>
@@ -316,7 +316,7 @@
 
         const TOTAL = 5;
         let presses = 0, swinging = false, done = false;
-        const shovelSound = new Audio('../assets/axesound.mp3');
+        const shovelSound = new Audio('assets/axesound.mp3');
 
         document.addEventListener('keydown', (e) => {
             if (e.code !== 'Space') return;
@@ -328,12 +328,12 @@
 
             swinging = true;
             presses++;
-            shovelImgEl.src = '../assets/shovel2.png';
+            shovelImgEl.src = 'assets/shovel2.png';
             shovelImgEl.classList.add('swing');
             nextBgEl.style.opacity = presses / TOTAL;
 
             setTimeout(() => {
-                shovelImgEl.src = '../assets/shovel1.png';
+                shovelImgEl.src = 'assets/shovel1.png';
                 shovelImgEl.classList.remove('swing');
                 setTimeout(() => {
                     swinging = false;

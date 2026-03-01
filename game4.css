@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-image: url("../assets/L4bg.png");
+    background-image: url("assets/L4bg.png");
     background-size: cover;
     background-position: center;
     font-family: "Caesar Dressing", system-ui;
@@ -15,7 +15,7 @@ body {
 #next-bg-overlay {
     position: fixed;
     inset: 0;
-    background-image: url("../assets/L5bg.png");
+    background-image: url("assets/L5bg.png");
     background-size: cover;
     background-position: center;
     opacity: 0;

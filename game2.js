@@ -8,8 +8,8 @@ const shovelImg    = document.getElementById('shovel-img');
 const nextBgOverlay = document.getElementById('next-bg-overlay');
 const needToolMsg  = document.getElementById('need-tool-msg');
 
-const SHOVEL_UP   = '../assets/shovel1.png';
-const SHOVEL_DOWN = '../assets/shovel2.png';
+const SHOVEL_UP   = 'assets/shovel1.png';
+const SHOVEL_DOWN = 'assets/shovel2.png';
 const TOTAL_PRESSES = 5;
 
 let flashTimer   = null;
@@ -18,8 +18,8 @@ let shovelPresses = 0;
 let shovelSwinging = false;
 let shovelDone   = false;
 
-const shovelSound = new Audio('../assets/axesound.mp3');
-const clickSound  = new Audio('../assets/clicksound.mp3');
+const shovelSound = new Audio('assets/axesound.mp3');
+const clickSound  = new Audio('assets/clicksound.mp3');
 
 // ── Flash message ─────────────────────────────────────────────
 function showFlash(msg) {
