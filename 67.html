@@ -277,20 +277,38 @@
         // ── When player returns from collect3.html ────────────
         // Check localStorage flag set by collect3.html
         window.addEventListener('pageshow', checkIfReturned);
-        window.addEventListener('focus',    checkIfReturned);
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') checkIfReturned();
+        });
 
+        let returnHandled = false;
         function checkIfReturned() {
+            if (returnHandled) return;
             if (localStorage.getItem('visited_collect3') === '1' &&
                 GameState.isCollected('six7')) {
+                returnHandled = true;
                 localStorage.removeItem('visited_collect3');
                 showShovel();
             }
         }
 
         function showShovel() {
-            // Hide nudge, show shovel overlay
+            // Hide camera and nudge, restore L3bg, then show shovel
             document.getElementById('collect-nudge').style.display = 'none';
-            document.getElementById('shovel-overlay').classList.add('visible');
+
+            // Hide all camera elements immediately (page may have reloaded)
+            document.getElementById('video').style.opacity = '0';
+            document.getElementById('output').style.opacity = '0';
+            document.getElementById('ui-container').style.opacity = '0';
+            document.getElementById('meme-ref').style.opacity = '0';
+
+            // Make sure L3bg is visible
+            document.getElementById('level-bg').classList.add('visible');
+
+            // Show shovel overlay after bg fades in
+            setTimeout(() => {
+                document.getElementById('shovel-overlay').classList.add('visible');
+            }, 900);
         }
 
         // ── Shovel digging ────────────────────────────────────
