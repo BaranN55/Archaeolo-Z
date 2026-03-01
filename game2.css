@@ -83,8 +83,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
 }
 #shovel-overlay.visible { display: flex; }
+#shovel-overlay.visible #shovel-img { pointer-events: auto; }
 
 #shovel-intro-text {
     font-size: 32px;

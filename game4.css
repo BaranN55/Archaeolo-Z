@@ -83,8 +83,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
 }
 #drill-overlay.visible { display: flex; }
+#drill-overlay.visible #drill-img { pointer-events: auto; }
 
 #drill-intro-text {
     font-size: 32px;
