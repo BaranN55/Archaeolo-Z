@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("../assets/L3bg.png");
+    background-size: cover;
+    background-position: center;
+    font-family: "Caesar Dressing", system-ui;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Stage 1: Box ── */
+#stage-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: opacity 0.5s ease;
+}
+#stage-box.hidden { opacity: 0; pointer-events: none; }
+
+#box-hint {
+    font-size: 30px;
+    color: #C8A582;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    margin: 0;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+}
+
+#box-img {
+    width: 280px;
+    height: auto;
+    cursor: pointer;
+    filter: drop-shadow(0 6px 20px rgba(0,0,0,0.7));
+    transition: transform 0.2s ease;
+}
+#box-img:hover { transform: scale(1.06); }
+
+/* ── Stage 2: Reveal ── */
+#stage-reveal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 50;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.6s ease;
+}
+#stage-reveal.visible {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+#reveal-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 900px;
+    padding: 40px;
+}
+
+#six7-img {
+    width: 280px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(200,165,130,0.4);
+    flex-shrink: 0;
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 30px rgba(200,165,130,0.3); }
+    50%       { box-shadow: 0 0 60px rgba(200,165,130,0.7); }
+}
+
+#lore-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#lore-text p {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #e8d5b0;
+    line-height: 1.7;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    margin: 0;
+}
+
+.challenge-text {
+    font-family: "Caesar Dressing", system-ui !important;
+    font-style: normal !important;
+    font-size: 24px !important;
+    color: #C8A582 !important;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8) !important;
+}
+
+#go-pose-btn {
+    font-family: "Caesar Dressing", system-ui;
+    font-size: 22px;
+    padding: 12px 40px;
+    background: #7a4e1a;
+    color: #f5e6c8;
+    border: 3px solid #a0845a;
+    border-radius: 30px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: transform 0.2s ease, background 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+#go-pose-btn:hover {
+    transform: scale(1.06);
+    background: #9a6e3a;
+}

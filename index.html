@@ -5,29 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="../assets/logo.png">
+    <link rel="icon" type="image/png" href="../assets/BNlogo2.png">
     <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="Startcomponents">
         <h1>Archaeolo-Z</h1>
-
-        <!-- Use a button-style link so we can intercept the click and reset first -->
         <a href="game.html" class="Start-button" id="start-btn"></a>
-
         <a href="about.html" class="About-button"></a>
-
         <a href="credits.html" class="Cred-button"></a>
     </div>
 
     <script>
         document.getElementById('start-btn').addEventListener('click', function(e) {
             e.preventDefault();
-            // Clear all saved game progress
             localStorage.removeItem('coins');
             localStorage.removeItem('collected');
             localStorage.removeItem('sold');
-            // Then go to the game
+            localStorage.removeItem('tools');
             window.location.href = 'game.html';
         });
     </script>

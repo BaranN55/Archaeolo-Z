@@ -32,7 +32,6 @@ const GameState = {
     },
     isSold(id) { return this.getSold().includes(id); },
 
-    // ── Tools ──────────────────────────────────────────────────
     getOwnedTools() {
         return JSON.parse(localStorage.getItem('tools') || '[]');
     },
@@ -50,14 +49,24 @@ const ITEMS = {
         name: 'Matcha',
         image: '../assets/Matcha.png',
         description: 'A drink or a sip of feeling better than others? This earthy drink had the generation captive on who liked it and who was just performing.',
-        coins: 100
+        coins: 100,
+        sellable: true
     },
     sbag: {
         id: 'sbag',
         name: 'Sephora Bag',
         image: '../assets/Sbag.png',
         description: 'Get your glam ladies! Well I mean 10 year olds absolutely needed retinol back then…right?',
-        coins: 200
+        coins: 200,
+        sellable: true
+    },
+    six7: {
+        id: 'six7',
+        name: '"67"',
+        image: '../assets/six7.png',
+        description: '"67" had no fixed meaning. Its power came from being meaningless — repeated so often it became one of the most iconic expressions of Gen Z\'s online language.',
+        coins: 0,
+        sellable: false
     }
 };
 

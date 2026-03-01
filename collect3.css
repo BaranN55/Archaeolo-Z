@@ -131,3 +131,15 @@ h1 {
 .sell-btn.can-sell { background: #4a9a3a; color: #fff; }
 .sell-btn.can-sell:hover { transform: scale(1.06); background: #3a8a2a; }
 .sell-btn.sold { background: #aaa; color: #eee; cursor: default; }
+
+.no-sale-badge {
+    font-family: "Caesar Dressing", system-ui;
+    font-size: 14px;
+    padding: 6px 18px;
+    border-radius: 20px;
+    background: rgba(100, 60, 20, 0.2);
+    border: 2px solid #a0845a;
+    color: #7a5a2a;
+    cursor: default;
+    letter-spacing: 1px;
+}
