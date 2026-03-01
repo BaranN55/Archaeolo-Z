@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-image: url("../assets/Aboutbg.png");
+    background-image: url("../assets/L1bg.png");
     background-size: cover;
     background-position: center;
     font-family: "Caesar Dressing", system-ui;
@@ -138,3 +138,61 @@ body {
     transform: scale(1.05);
     background: #9a6a30;
 }
+
+/* Side buttons panel */
+.Startcomponents {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 38px;
+    z-index: 20;
+}
+
+.Coin-button {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background-image: url("../assets/coin.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.Coin-button:hover { transform: scale(1.1); }
+
+.Collect-button {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background-image: url("../assets/Collects.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.Collect-button:hover { transform: scale(1.1); }
+
+.Tools-button {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background-image: url("../assets/Tools.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.Tools-button:hover { transform: scale(1.1); }
