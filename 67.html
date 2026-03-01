@@ -184,7 +184,7 @@
 
         #shovel-img {
             width: 160px;
-            transition: transform 0.5s ease, opacity 0.5s ease;
+            transition: transform 0.15s ease, opacity 0.5s ease;
         }
         #shovel-img.swing { transform: rotate(50deg); }
 
@@ -275,22 +275,37 @@
         }
 
         // ── When player returns from collect3.html ────────────
-        // Check localStorage flag set by collect3.html
         window.addEventListener('pageshow', checkIfReturned);
-        window.addEventListener('focus',    checkIfReturned);
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') checkIfReturned();
+        });
 
+        let returnHandled = false;
         function checkIfReturned() {
+            if (returnHandled) return;
             if (localStorage.getItem('visited_collect3') === '1' &&
                 GameState.isCollected('six7')) {
+                returnHandled = true;
                 localStorage.removeItem('visited_collect3');
                 showShovel();
             }
         }
 
         function showShovel() {
-            // Hide nudge, show shovel overlay
+            // Hide nudge and all camera elements
             document.getElementById('collect-nudge').style.display = 'none';
-            document.getElementById('shovel-overlay').classList.add('visible');
+            document.getElementById('video').style.opacity = '0';
+            document.getElementById('output').style.opacity = '0';
+            document.getElementById('ui-container').style.opacity = '0';
+            document.getElementById('meme-ref').style.opacity = '0';
+
+            // Show L3bg immediately
+            document.getElementById('level-bg').classList.add('visible');
+
+            // Show shovel overlay after bg fades in
+            setTimeout(() => {
+                document.getElementById('shovel-overlay').classList.add('visible');
+            }, 900);
         }
 
         // ── Shovel digging ────────────────────────────────────
@@ -301,11 +316,15 @@
 
         const TOTAL = 5;
         let presses = 0, swinging = false, done = false;
+        const shovelSound = new Audio('../assets/axesound.mp3');
 
         document.addEventListener('keydown', (e) => {
             if (e.code !== 'Space') return;
             e.preventDefault();
             if (!shovelOverlay.classList.contains('visible') || done || swinging) return;
+
+            shovelSound.currentTime = 0;
+            shovelSound.play();
 
             swinging = true;
             presses++;
@@ -324,8 +343,8 @@
                         shovelImgEl.style.opacity = '0';
                         setTimeout(() => { window.location.href = 'game4.html'; }, 500);
                     }
-                }, 500);
-            }, 600);
+                }, 200);
+            }, 200);
         });
 
     </script>

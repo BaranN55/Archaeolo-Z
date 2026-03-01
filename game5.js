@@ -90,17 +90,25 @@ function showMarsEnding() {
         ticketOverlay.classList.add('shown');
     }));
 
-    // Stage 2: After 3 seconds, fade mars in OVER the ticket, then hide ticket
-    setTimeout(() => {
-        const marsOverlay = document.getElementById('mars-overlay');
-        marsOverlay.classList.add('visible');
-        requestAnimationFrame(() => requestAnimationFrame(() => {
-            marsOverlay.classList.add('shown');
-        }));
+// Stage 2: After 3 seconds, fade mars in OVER the ticket, then hide ticket
+setTimeout(() => {
+    // Stop theme music and play end sound
+    if (typeof bgMusic !== 'undefined' && bgMusic) {
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+    }
+    const endSound = new Audio('../assets/endsound.mp3');
+    endSound.play();
 
-        // Once mars is fully visible, remove the ticket underneath
-        setTimeout(() => {
-            ticketOverlay.style.display = 'none';
-        }, 1000);
-    }, 3000);
+    const marsOverlay = document.getElementById('mars-overlay');
+    marsOverlay.classList.add('visible');
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+        marsOverlay.classList.add('shown');
+    }));
+
+    // Once mars is fully visible, remove the ticket underneath
+    setTimeout(() => {
+        ticketOverlay.style.display = 'none';
+    }, 1000);
+}, 3000);
 }
