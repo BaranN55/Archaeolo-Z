@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 5</title>
+    <link rel="stylesheet" href="game5.css">
+    <link rel="icon" type="image/png" href="../assets/BNlogo2.png">
+    <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Next level background fade overlay (mars ending) -->
+    <div id="next-bg-overlay"></div>
+
+    <!-- Instruction text -->
+    <div id="collect-hint">Click on these objects to collect them!</div>
+
+    <!-- Collectible items -->
+    <img src="../assets/lafufu.png"  class="collectible" id="item-lafufu"  data-id="lafufu"  alt="Lafufu">
+    <img src="../assets/stanley.png" class="collectible" id="item-stanley" data-id="stanley" alt="Banley Cup">
+
+    <!-- Collected flash message -->
+    <div id="collect-flash"></div>
+
+    <!-- "Sell your items" prompt shown after collecting both -->
+    <div id="sell-prompt">
+        <div id="sell-prompt-text">Sell your items to earn enough coins for your Mars ticket!</div>
+        <a href="collect5.html" id="sell-prompt-btn">Go to Collection</a>
+    </div>
+
+    <!-- Mars ticket ending overlay -->
+    <div id="mars-overlay">
+        <div id="mars-content">
+            <div id="mars-title">🚀 Congratulations!</div>
+            <div id="mars-msg">You can now get your dream ticket to Mars using the <span id="coin-count">1350</span> Roasted Goldfish you have left!</div>
+        </div>
+    </div>
+
+    <script src="gamestate.js"></script>
+    <script src="nav.js"></script>
+    <script src="game5.js"></script>
+</body>
+</html>

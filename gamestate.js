@@ -83,6 +83,22 @@ const ITEMS = {
         description: 'A viral, AI-generated "Italian brain rot" meme popular with children on TikTok; Ballerina cappuccina Mi Mi Miiiii.',
         coins: 350,
         sellable: true
+    },
+    lafufu: {
+        id: 'lafufu',
+        name: 'Lafufu',
+        image: '../assets/lafufu.png',
+        description: 'Old age? Time flying by? No no that wasn\'t the reason gen-z died, it was because of this thing. Beware :)',
+        coins: 500,
+        sellable: true
+    },
+    stanley: {
+        id: 'stanley',
+        name: 'Banley Cup',
+        image: '../assets/stanley.png',
+        description: 'Stay hydrated! You\'ll need the water carrying this thing since it can never fit in anyone\'s bag. Also was known to cause explosions when dropped.',
+        coins: 550,
+        sellable: true
     }
 };
 

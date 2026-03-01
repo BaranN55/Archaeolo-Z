@@ -19,6 +19,8 @@
         '67.html':       { coin: 'coin3.html', collect: 'collect3.html', tool: 'tool3.html' },
         // Level 4
         'game4.html':    { coin: 'coin4.html', collect: 'collect4.html', tool: 'tool4.html' },
+        // Level 5
+        'game5.html':    { coin: 'coin5.html', collect: 'collect5.html', tool: 'tool5.html' },
     };
 
     // Coin / collect / tool pages themselves — show nav pointing back to same level
@@ -35,6 +37,9 @@
         'coin4.html':     { coin: 'coin4.html', collect: 'collect4.html', tool: 'tool4.html' },
         'collect4.html':  { coin: 'coin4.html', collect: 'collect4.html', tool: 'tool4.html' },
         'tool4.html':     { coin: 'coin4.html', collect: 'collect4.html', tool: 'tool4.html' },
+        'coin5.html':     { coin: 'coin5.html', collect: 'collect5.html', tool: 'tool5.html' },
+        'collect5.html':  { coin: 'coin5.html', collect: 'collect5.html', tool: 'tool5.html' },
+        'tool5.html':     { coin: 'coin5.html', collect: 'collect5.html', tool: 'tool5.html' },
     };
 
     const links = NAV_MAP[page] || SIDE_PAGE_MAP[page];
@@ -74,21 +79,29 @@
     document.head.appendChild(style);
 
     // ── Inject HTML ───────────────────────────────────────────
-    const nav = document.createElement('div');
-    nav.id = 'persistent-nav';
-    nav.innerHTML = `
-        <a href="${links.coin}"    class="nav-btn nav-btn-coin"    title="Coins"></a>
-        <a href="${links.collect}" class="nav-btn nav-btn-collect" title="Collection"></a>
-        <a href="${links.tool}"    class="nav-btn nav-btn-tool"    title="Tools"></a>
-    `;
-    document.body.appendChild(nav);
+    function injectNav() {
+        const existing = document.getElementById('persistent-nav');
+        if (existing) existing.remove();
 
-    // ── Highlight current page button ─────────────────────────
-    nav.querySelectorAll('a').forEach(a => {
-        if (a.getAttribute('href') === page) {
-            a.style.outline = '3px solid #C8A582';
-            a.style.outlineOffset = '3px';
-        }
-    });
+        const nav = document.createElement('div');
+        nav.id = 'persistent-nav';
+        nav.innerHTML = `
+            <a href="${links.coin}"    class="nav-btn nav-btn-coin"    title="Coins"></a>
+            <a href="${links.collect}" class="nav-btn nav-btn-collect" title="Collection"></a>
+            <a href="${links.tool}"    class="nav-btn nav-btn-tool"    title="Tools"></a>
+        `;
+        document.body.appendChild(nav);
+
+        nav.querySelectorAll('a').forEach(a => {
+            if (a.getAttribute('href') === page) {
+                a.style.outline = '3px solid #C8A582';
+                a.style.outlineOffset = '3px';
+            }
+        });
+    }
+
+    // Inject immediately + re-inject on back/forward navigation (bfcache restore)
+    injectNav();
+    window.addEventListener('pageshow', () => injectNav());
 
 })();

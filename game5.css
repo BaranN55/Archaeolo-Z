@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("../assets/L5bg.png");
+    background-size: cover;
+    background-position: center;
+    font-family: "Caesar Dressing", system-ui;
+    overflow: hidden;
+}
+
+/* Mars ending bg fade */
+#next-bg-overlay {
+    position: fixed;
+    inset: 0;
+    background-image: url("../assets/marsbg.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Collect hint */
+#collect-hint {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    color: #ffddaa;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+    z-index: 10;
+    transition: opacity 0.5s ease;
+    white-space: nowrap;
+}
+#collect-hint.hidden { opacity: 0; pointer-events: none; }
+
+/* Collectibles */
+.collectible {
+    position: fixed;
+    width: 130px;
+    height: auto;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease, opacity 0.4s ease;
+    filter: drop-shadow(2px 4px 12px rgba(255,80,0,0.6));
+}
+.collectible:hover { transform: scale(1.12); }
+.collectible.collected { opacity: 0; pointer-events: none; }
+
+#item-lafufu  { left: 18%; top: 38%; }
+#item-stanley { right: 22%; bottom: 24%; width: 110px; }
+
+/* Flash message */
+#collect-flash {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 22px;
+    color: #fff5e0;
+    background: rgba(120, 30, 0, 0.88);
+    padding: 8px 24px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 30;
+    pointer-events: none;
+}
+#collect-flash.show { opacity: 1; }
+
+/* ── Sell prompt (shown after both collected) ── */
+#sell-prompt {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    pointer-events: none;
+}
+#sell-prompt.visible {
+    display: flex;
+}
+
+#sell-prompt-text {
+    font-size: 30px;
+    color: #ffddaa;
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+    line-height: 1.6;
+    max-width: 600px;
+    pointer-events: none;
+}
+
+#sell-prompt-btn {
+    font-family: "Caesar Dressing", system-ui;
+    font-size: 22px;
+    padding: 14px 44px;
+    background: #7a2a00;
+    color: #ffe0b0;
+    border: 3px solid #ff7733;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+    box-shadow: 0 4px 16px rgba(255,80,0,0.5);
+    pointer-events: auto;
+}
+#sell-prompt-btn:hover { transform: scale(1.06); background: #a03a00; }
+
+/* ── Mars ending overlay ── */
+#mars-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+}
+#mars-overlay.visible { display: flex; }
+#mars-overlay.shown   { opacity: 1; }
+
+#mars-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    max-width: 700px;
+    padding: 50px 40px;
+    background: rgba(10, 5, 40, 0.82);
+    border-radius: 24px;
+    border: 3px solid #a07050;
+    box-shadow: 0 0 60px rgba(255,120,40,0.3);
+}
+
+#mars-title {
+    font-size: 52px;
+    color: #ffddaa;
+    text-shadow: 2px 2px 10px rgba(255,100,20,0.8);
+    text-align: center;
+}
+
+#mars-msg {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #ffe8c0;
+    text-align: center;
+    line-height: 1.8;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+#mars-msg span {
+    font-family: "Caesar Dressing", system-ui;
+    font-style: normal;
+    color: #ffd060;
+    font-size: 26px;
+}

@@ -54,7 +54,7 @@ body {
 .collectible.collected { opacity: 0; pointer-events: none; }
 
 #item-dubaic    { left: 15%; top: 40%; }
-#item-ballerinac { right: 20%; bottom: 22%; }
+#item-ballerinac { right: 20%; bottom: 22%; width: 300px;}
 
 /* Flash message */
 #collect-flash {
