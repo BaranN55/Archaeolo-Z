@@ -9,11 +9,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="Startcomponents">
-        <a href="coin.html" class="Coin-button"></a> 
+
+    <!-- Dark overlay used to fade in the next background -->
+    <div id="bg-overlay"></div>
+
+    <!-- Intro prompt text -->
+    <div id="intro-text">Press Spacebar 5 times to dig into the ground</div>
+
+    <!-- Pickaxe image -->
+    <img id="pickaxe" src="../assets/Axeup.png" alt="Pickaxe">
+
+    <!-- Side buttons, shown after digging is complete -->
+    <div class="Startcomponents" id="side-buttons">
+        <a href="coin.html" class="Coin-button"></a>
         <a href="collect.html" class="Collect-button"></a>
         <a href="tool.html" class="Tools-button"></a>
     </div>
-<script src="main.js"></script>
+
+    <script src="main.js"></script>
 </body>
 </html>

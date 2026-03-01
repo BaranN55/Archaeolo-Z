@@ -8,8 +8,54 @@ body {
     font-family: "Caesar Dressing", system-ui;
     font-weight: 400;
     font-style: normal;
-  }
+    overflow: hidden;
+}
 
+/* Overlay that fades in the underground background on top */
+#bg-overlay {
+    position: fixed;
+    inset: 0;
+    background-image: url("../assets/L1bg.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Intro instruction text */
+#intro-text {
+    position: fixed;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    color: #C8A582;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    z-index: 10;
+    transition: opacity 0.5s ease;
+}
+
+/* Pickaxe image - centered on screen */
+#pickaxe {
+    position: fixed;
+    bottom: 18%;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    width: 160px;
+    height: auto;
+    z-index: 10;
+    transition: transform 0.5s ease;
+}
+
+/* Swinging state - rotates pickaxe downward */
+#pickaxe.swing {
+    transform: translateX(-50%) rotate(60deg);
+}
+
+/* Side buttons panel */
 .Startcomponents {
     position: fixed;
     right: 20px;
@@ -18,8 +64,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 38px; /* ~1cm */
-  }
+    gap: 38px;
+    z-index: 20;
+}
 
 .Coin-button {
     display: inline-block;
@@ -32,11 +79,9 @@ body {
     text-decoration: none;
     cursor: pointer;
     transition: transform 0.2s ease;
-  }
+}
 
-  .Coin-button:hover {
-    transform: scale(1.1);
-  }
+.Coin-button:hover { transform: scale(1.1); }
 
 .Collect-button {
     display: inline-block;
@@ -49,11 +94,9 @@ body {
     text-decoration: none;
     cursor: pointer;
     transition: transform 0.2s ease;
-  }
+}
 
-  .Collect-button:hover {
-    transform: scale(1.1);
-  }
+.Collect-button:hover { transform: scale(1.1); }
 
 .Tools-button {
     display: inline-block;
@@ -66,8 +109,6 @@ body {
     text-decoration: none;
     cursor: pointer;
     transition: transform 0.2s ease;
-  }
+}
 
-  .Tools-button:hover {
-    transform: scale(1.1);
-  }
+.Tools-button:hover { transform: scale(1.1); }
