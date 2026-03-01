@@ -166,7 +166,7 @@ body {
 #axe-img {
     width: 160px;
     height: auto;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    transition: transform 0.15s ease, opacity 0.5s ease;
 }
 
 #axe-img.swing {

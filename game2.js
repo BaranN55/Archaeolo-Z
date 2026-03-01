@@ -99,8 +99,8 @@ document.addEventListener('keydown', (e) => {
                 shovelDone = true;
                 finishLevel();
             }
-        }, 500);
-    }, 600);
+        }, 200);
+    }, 200);
 });
 
 function finishLevel() {

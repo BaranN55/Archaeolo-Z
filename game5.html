@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 5</title>
     <link rel="stylesheet" href="game5.css">
-    <link rel="icon" type="image/png" href="../assets/BNlogo2.png">
+    <link rel="icon" type="image/png" href="../assets/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -29,13 +29,15 @@
         <a href="collect5.html" id="sell-prompt-btn">Go to Collection</a>
     </div>
 
-    <!-- Mars ticket ending overlay -->
-    <div id="mars-overlay">
-        <div id="mars-content">
-            <div id="mars-title">🚀 Congratulations!</div>
-            <div id="mars-msg">You can now get your dream ticket to Mars using the <span id="coin-count">1350</span> Roasted Goldfish you have left!</div>
+    <!-- Stage 1: Ticket bg + message -->
+    <div id="ticket-overlay">
+        <div id="ticket-content">
+            <div id="ticket-msg">You can now get your dream ticket to Mars using the <span id="coin-count">1350</span> Roasted Goldfish you have left!</div>
         </div>
     </div>
+
+    <!-- Stage 2: Pure mars bg, no text -->
+    <div id="mars-overlay"></div>
 
     <script src="gamestate.js"></script>
     <script src="nav.js"></script>

@@ -114,55 +114,57 @@ body {
 }
 #sell-prompt-btn:hover { transform: scale(1.06); background: #a03a00; }
 
-/* ── Mars ending overlay ── */
-#mars-overlay {
+/* ── Stage 1: Ticket bg + message ── */
+#ticket-overlay {
     display: none;
     position: fixed;
     inset: 0;
     z-index: 200;
+    background-image: url("../assets/ticketbg.png");
+    background-size: cover;
+    background-position: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.8s ease;
-    pointer-events: none;
 }
-#mars-overlay.visible { display: flex; }
-#mars-overlay.shown   { opacity: 1; }
+#ticket-overlay.visible { display: flex; }
+#ticket-overlay.shown   { opacity: 1; }
 
-#mars-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 28px;
-    max-width: 700px;
-    padding: 50px 40px;
-    background: rgba(10, 5, 40, 0.82);
-    border-radius: 24px;
-    border: 3px solid #a07050;
-    box-shadow: 0 0 60px rgba(255,120,40,0.3);
-}
-
-#mars-title {
-    font-size: 52px;
-    color: #ffddaa;
-    text-shadow: 2px 2px 10px rgba(255,100,20,0.8);
+#ticket-content {
+    position: fixed;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 340px;
     text-align: center;
 }
 
-#mars-msg {
-    font-family: Georgia, serif;
-    font-style: italic;
-    font-size: 22px;
-    color: #ffe8c0;
-    text-align: center;
-    line-height: 1.8;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
-
-#mars-msg span {
+#ticket-msg {
     font-family: "Caesar Dressing", system-ui;
-    font-style: normal;
-    color: #ffd060;
-    font-size: 26px;
+    font-size: 32px;
+    color: #cc1111;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+    line-height: 1.7;
 }
+
+#ticket-msg span {
+    color: #f5a800;
+    font-size: 36px;
+}
+
+/* ── Stage 2: Pure mars bg, no text ── */
+#mars-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background-image: url("../assets/marsbg.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+#mars-overlay.visible { display: block; }
+#mars-overlay.shown   { opacity: 1; }

@@ -4,7 +4,6 @@ const collectHint   = document.getElementById('collect-hint');
 const flashEl       = document.getElementById('collect-flash');
 const sellPrompt    = document.getElementById('sell-prompt');
 const nextBgOverlay = document.getElementById('next-bg-overlay');
-const marsOverlay   = document.getElementById('mars-overlay');
 
 const MARS_COIN_TARGET = 1350;
 let flashTimer = null;
@@ -70,21 +69,34 @@ document.addEventListener('visibilitychange', () => {
 
 // ── Mars ending ───────────────────────────────────────────────
 function showMarsEnding() {
-    // Hide everything else
     sellPrompt.style.display = 'none';
     collectHint.style.display = 'none';
 
-    // Update coin count display
+    // Inject a style that permanently hides the nav regardless of re-injection
+    const hideStyle = document.createElement('style');
+    hideStyle.textContent = '#persistent-nav { display: none !important; }';
+    document.head.appendChild(hideStyle);
+
     document.getElementById('coin-count').textContent = GameState.getCoins();
 
-    // Fade in mars background
-    nextBgOverlay.style.opacity = '1';
+    // Stage 1: Show ticket bg + message
+    const ticketOverlay = document.getElementById('ticket-overlay');
+    ticketOverlay.classList.add('visible');
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+        ticketOverlay.classList.add('shown');
+    }));
 
-    // Show mars overlay after bg fades in
+    // Stage 2: After 3 seconds, fade mars in OVER the ticket, then hide ticket
     setTimeout(() => {
+        const marsOverlay = document.getElementById('mars-overlay');
         marsOverlay.classList.add('visible');
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => marsOverlay.classList.add('shown'));
-        });
-    }, 800);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            marsOverlay.classList.add('shown');
+        }));
+
+        // Once mars is fully visible, remove the ticket underneath
+        setTimeout(() => {
+            ticketOverlay.style.display = 'none';
+        }, 1000);
+    }, 3000);
 }

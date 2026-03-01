@@ -161,8 +161,8 @@ document.addEventListener('keydown', (e) => {
                 axeDone = true;
                 finishLevel();
             }
-        }, 500);
-    }, 600);
+        }, 200);
+    }, 200);
 });
 
 function finishLevel() {

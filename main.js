@@ -35,17 +35,15 @@ document.addEventListener('keydown', (e) => {
         pickaxe.src = PICKAXE_UP;
         pickaxe.classList.remove('swing');
 
-        // Wait for the up swing to finish before allowing next press
         setTimeout(() => {
             isSwinging = false;
 
-            // On the final press, finish the transition
             if (presses >= TOTAL_PRESSES) {
                 diggingDone = true;
                 finishDigging();
             }
-        }, 500);
-    }, 600);
+        }, 200);
+    }, 200);
 });
 
 function finishDigging() {
