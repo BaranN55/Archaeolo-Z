@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 2</title>
     <link rel="stylesheet" href="game2.css">
-    <link rel="icon" type="image/png" href="../assets/logo.png">
+    <link rel="icon" type="image/png" href="../assets/BNlogo2.png">
     <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Next level background fade overlay -->
+    <div id="next-bg-overlay"></div>
 
     <!-- Instruction text -->
     <div id="collect-hint">Click on these objects to collect them!</div>
@@ -19,6 +22,15 @@
 
     <!-- Collected flash message -->
     <div id="collect-flash"></div>
+
+    <!-- Shovel digging overlay (appears after buying shovel) -->
+    <div id="shovel-overlay">
+        <div id="shovel-intro-text">Press Spacebar 5 times to dig deeper!</div>
+        <img id="shovel-img" src="../assets/shovel1.png" alt="Shovel">
+    </div>
+
+    <!-- "Need a shovel" prompt -->
+    <div id="need-tool-msg">You need a Shovel to dig deeper!<br>Buy one from the Tools page.</div>
 
     <!-- Side buttons -->
     <div class="Startcomponents">
