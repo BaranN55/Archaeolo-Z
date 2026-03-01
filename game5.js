@@ -43,6 +43,8 @@ document.querySelectorAll('.collectible').forEach(el => {
 
     el.addEventListener('click', () => {
         if (GameState.isCollected(id)) return;
+        clickSound.currentTime = 0;
+        clickSound.play();
         const item = ITEMS[id];
         GameState.addCollected(id);
         el.classList.add('collected');
