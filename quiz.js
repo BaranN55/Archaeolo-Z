@@ -1,4 +1,4 @@
-// Accepted answers for each word (all lowercase, player input will be lowercased for comparison)
+// ── Answer bank ──────────────────────────────────────────────
 const ANSWERS = [
     {
         word: "Rizz",
@@ -42,19 +42,18 @@ const ANSWERS = [
     }
 ];
 
-const inputs        = document.querySelectorAll('.answer-input');
-const feedbacks     = document.querySelectorAll('.feedback');
-const globalFB      = document.getElementById('global-feedback');
-const submitBtn     = document.getElementById('submit-btn');
+// ── Quiz elements ─────────────────────────────────────────────
+const inputs     = document.querySelectorAll('.answer-input');
+const feedbacks  = document.querySelectorAll('.feedback');
+const globalFB   = document.getElementById('global-feedback');
+const submitBtn  = document.getElementById('submit-btn');
+const quizWrapper = document.getElementById('quiz-wrapper');
 
-// Track which answers are already correct so they lock in
 const locked = [false, false, false, false, false];
 
 submitBtn.addEventListener('click', checkAnswers);
-
-// Also allow Enter key to submit
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') checkAnswers();
+    if (e.key === 'Enter' && !axePhase) checkAnswers();
 });
 
 function checkAnswers() {
@@ -62,12 +61,11 @@ function checkAnswers() {
     let anyWrong = false;
 
     inputs.forEach((input, i) => {
-        if (locked[i]) return; // skip already correct ones
+        if (locked[i]) return;
 
         const val = input.value.trim().toLowerCase();
 
         if (val === '') {
-            // Empty — mark as incomplete
             allCorrect = false;
             input.classList.remove('correct', 'wrong');
             feedbacks[i].textContent = '';
@@ -87,8 +85,7 @@ function checkAnswers() {
         } else {
             input.classList.remove('correct');
             input.classList.add('wrong');
-            // Retrigger shake animation
-            void input.offsetWidth;
+            void input.offsetWidth; // retrigger shake
             feedbacks[i].textContent = '✗';
             feedbacks[i].className = 'feedback wrong';
             allCorrect = false;
@@ -103,9 +100,77 @@ function checkAnswers() {
         globalFB.textContent = 'All correct! Well done!';
         globalFB.className = 'success';
         submitBtn.disabled = true;
-        // TODO: navigate to next level or trigger next game event here
+
+        // After a short celebration pause, fade paper out and show axe
+        setTimeout(startAxePhase, 900);
     } else {
-        // Some still empty, no wrong ones
         globalFB.textContent = '';
     }
+}
+
+// ── Post-quiz axe digging phase ───────────────────────────────
+const axeOverlay   = document.getElementById('axe-overlay');
+const axeIntroText = document.getElementById('axe-intro-text');
+const axeImg       = document.getElementById('axe-img');
+const nextBgOverlay = document.getElementById('next-bg-overlay');
+
+const AXE_UP   = '../assets/Axeup.png';
+const AXE_DOWN = '../assets/Axedown.png';
+const AXE_TOTAL = 5;
+
+let axePhase    = false;
+let axePresses  = 0;
+let axeSwinging = false;
+let axeDone     = false;
+
+function startAxePhase() {
+    // Fade out paper
+    quizWrapper.classList.add('hidden');
+
+    // Show axe overlay after paper fades
+    setTimeout(() => {
+        axeOverlay.classList.add('visible');
+        axePhase = true;
+    }, 650);
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.code !== 'Space') return;
+    e.preventDefault();
+
+    if (!axePhase || axeDone || axeSwinging) return;
+
+    axeSwinging = true;
+    axePresses++;
+
+    // Swing down
+    axeImg.src = AXE_DOWN;
+    axeImg.classList.add('swing');
+
+    // Fade in next background gradually
+    nextBgOverlay.style.opacity = axePresses / AXE_TOTAL;
+
+    setTimeout(() => {
+        axeImg.src = AXE_UP;
+        axeImg.classList.remove('swing');
+
+        setTimeout(() => {
+            axeSwinging = false;
+
+            if (axePresses >= AXE_TOTAL) {
+                axeDone = true;
+                finishLevel();
+            }
+        }, 500);
+    }, 600);
+});
+
+function finishLevel() {
+    axeIntroText.style.opacity = '0';
+    axeImg.style.opacity = '0';
+
+    // Navigate to next level once background is fully shown
+    setTimeout(() => {
+        window.location.href = 'game2.html'; // change to your next level page
+    }, 500);
 }

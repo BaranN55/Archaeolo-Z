@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-image: url("../assets/L2bg.png");
+    background-size: cover;
+    background-position: center;
+    font-family: "Caesar Dressing", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: #3a2510;
+}
+
+.Discard-button {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-image: url("../assets/db.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 30;
+}
+.Discard-button:hover { transform: scale(1.05); }
+
+h1 {
+    text-align: center;
+    color: #C8A582;
+    font-size: 40px;
+    margin: 20px 0 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+    padding-top: 10px;
+}
+
+#items-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    justify-content: center;
+    padding: 20px 60px 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#empty-msg {
+    text-align: center;
+    color: #C8A582;
+    font-size: 24px;
+    margin-top: 60px;
+    display: none;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+.item-card {
+    background: rgba(245, 230, 200, 0.92);
+    border-radius: 16px;
+    border: 3px solid #a0845a;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px 18px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+    transition: transform 0.2s ease;
+}
+.item-card:hover { transform: translateY(-4px); }
+
+.item-img-wrap {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: rgba(200, 165, 130, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    overflow: hidden;
+}
+.item-img-wrap img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.item-name {
+    font-size: 20px;
+    color: #3a2510;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.item-desc {
+    font-size: 12px;
+    color: #5a3a1a;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    font-family: Georgia, serif;
+    font-style: italic;
+}
+
+.item-price {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 18px;
+    color: #3a2510;
+    margin-bottom: 14px;
+}
+.item-price img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.sell-btn {
+    font-family: "Caesar Dressing", system-ui;
+    font-size: 16px;
+    padding: 7px 26px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+.sell-btn.can-sell { background: #4a9a3a; color: #fff; }
+.sell-btn.can-sell:hover { transform: scale(1.06); background: #3a8a2a; }
+.sell-btn.sold { background: #aaa; color: #eee; cursor: default; }

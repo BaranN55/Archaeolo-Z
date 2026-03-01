@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 2</title>
+    <link rel="stylesheet" href="game2.css">
+    <link rel="icon" type="image/png" href="../assets/BNlogo2.png">
+    <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Instruction text -->
+    <div id="collect-hint">Click on these objects to collect them!</div>
+
+    <!-- Collectible items -->
+    <img src="../assets/Matcha.png" class="collectible" id="item-matcha" data-id="matcha" alt="Matcha">
+    <img src="../assets/Sbag.png"   class="collectible" id="item-sbag"   data-id="sbag"   alt="Sephora Bag">
+
+    <!-- Collected flash message -->
+    <div id="collect-flash"></div>
+
+    <!-- Side buttons -->
+    <div class="Startcomponents">
+        <a href="coin3.html"    class="Coin-button"></a>
+        <a href="collect3.html" class="Collect-button"></a>
+        <a href="tool3.html"    class="Tools-button"></a>
+    </div>
+
+    <script src="gamestate.js"></script>
+    <script src="game2.js"></script>
+</body>
+</html>

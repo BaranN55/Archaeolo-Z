@@ -12,10 +12,17 @@ body {
     overflow: hidden;
 }
 
+/* ── Paper ── */
 #quiz-wrapper {
     position: relative;
-    width: 420px;
-    height: 560px;
+    width: 380px;
+    height: 500px;
+    transition: opacity 0.6s ease;
+}
+
+#quiz-wrapper.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 #paper-bg {
@@ -31,33 +38,36 @@ body {
     position: absolute;
     inset: 0;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 50px 20px 70px;
     box-sizing: border-box;
+    padding: 0 18px 0 55px;
 }
 
 #quiz-title {
-    font-size: 22px;
+    font-size: 19px;
     color: #5a3a1a;
-    margin: 0 0 16px 0;
+    margin: 18px 0 0 0;
     text-align: center;
     letter-spacing: 1px;
 }
 
+/* Each row aligned to its dot on the paper image */
 .qa-row {
     display: flex;
     align-items: center;
     width: 100%;
-    margin-bottom: 10px;
-    gap: 8px;
+    gap: 6px;
 }
 
+.qa-row:nth-child(2) { margin-top: 62px; }
+.qa-row:nth-child(3) { margin-top: 22px; }
+.qa-row:nth-child(4) { margin-top: 22px; }
+.qa-row:nth-child(5) { margin-top: 22px; }
+.qa-row:nth-child(6) { margin-top: 22px; }
+
 .word-label {
-    font-size: 17px;
+    font-size: 15px;
     color: #3a2510;
-    min-width: 80px;
+    min-width: 68px;
     text-align: right;
     flex-shrink: 0;
 }
@@ -65,8 +75,8 @@ body {
 .answer-input {
     flex: 1;
     font-family: "Caesar Dressing", system-ui;
-    font-size: 14px;
-    padding: 4px 8px;
+    font-size: 13px;
+    padding: 3px 7px;
     border: 2px solid #a0845a;
     border-radius: 4px;
     background: rgba(255, 252, 220, 0.7);
@@ -75,15 +85,11 @@ body {
     transition: border-color 0.2s;
 }
 
-.answer-input:focus {
-    border-color: #5a3a1a;
-}
-
+.answer-input:focus  { border-color: #5a3a1a; }
 .answer-input.correct {
     border-color: #4a8a3a;
     background: rgba(200, 255, 180, 0.5);
 }
-
 .answer-input.wrong {
     border-color: #cc2222;
     background: rgba(255, 180, 180, 0.5);
@@ -99,47 +105,88 @@ body {
 }
 
 .feedback {
-    font-size: 11px;
-    min-width: 18px;
+    font-size: 12px;
+    min-width: 16px;
     font-weight: bold;
 }
-
 .feedback.correct { color: #2a7a1a; }
 .feedback.wrong   { color: #cc2222; }
 
 #global-feedback {
-    font-size: 18px;
+    font-size: 16px;
     color: #cc2222;
-    min-height: 26px;
+    min-height: 22px;
     text-align: center;
-    margin: 6px 0 4px;
+    margin: 10px 0 4px;
     font-weight: bold;
     letter-spacing: 1px;
 }
-
-#global-feedback.success {
-    color: #2a7a1a;
-}
+#global-feedback.success { color: #2a7a1a; }
 
 #submit-btn {
+    display: block;
+    margin: 6px auto 0;
     font-family: "Caesar Dressing", system-ui;
-    font-size: 18px;
-    padding: 8px 28px;
+    font-size: 16px;
+    padding: 6px 24px;
     background: #7a4e1a;
     color: #f5e6c8;
     border: 3px solid #3a2510;
     border-radius: 6px;
     cursor: pointer;
     transition: transform 0.15s ease, background 0.15s ease;
-    margin-top: 4px;
+}
+#submit-btn:hover { transform: scale(1.05); background: #9a6a30; }
+#submit-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+
+/* ── Post-quiz axe overlay ── */
+#axe-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-#submit-btn:hover {
-    transform: scale(1.05);
-    background: #9a6a30;
+#axe-overlay.visible {
+    display: flex;
 }
 
-/* Side buttons panel */
+#axe-intro-text {
+    font-size: 32px;
+    color: #C8A582;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    margin-bottom: 30px;
+    transition: opacity 0.5s ease;
+}
+
+#axe-img {
+    width: 160px;
+    height: auto;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+#axe-img.swing {
+    transform: rotate(60deg);
+}
+
+/* Next level background overlay */
+#next-bg-overlay {
+    position: fixed;
+    inset: 0;
+    background-image: url("../assets/L2bg.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 49;
+}
+
+/* ── Side buttons ── */
 .Startcomponents {
     position: fixed;
     right: 20px;
@@ -164,7 +211,6 @@ body {
     cursor: pointer;
     transition: transform 0.2s ease;
 }
-
 .Coin-button:hover { transform: scale(1.1); }
 
 .Collect-button {
@@ -179,7 +225,6 @@ body {
     cursor: pointer;
     transition: transform 0.2s ease;
 }
-
 .Collect-button:hover { transform: scale(1.1); }
 
 .Tools-button {
@@ -194,5 +239,4 @@ body {
     cursor: pointer;
     transition: transform 0.2s ease;
 }
-
 .Tools-button:hover { transform: scale(1.1); }

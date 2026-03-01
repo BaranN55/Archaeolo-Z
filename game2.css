@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("../assets/L2bg.png");
+    background-size: cover;
+    background-position: center;
+    font-family: "Caesar Dressing", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    overflow: hidden;
+}
+
+#collect-hint {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    color: #C8A582;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    z-index: 10;
+    transition: opacity 0.5s ease;
+    white-space: nowrap;
+}
+#collect-hint.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.collectible {
+    position: fixed;
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease, opacity 0.4s ease;
+    filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.5));
+}
+.collectible:hover { transform: scale(1.12); }
+.collectible.collected {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#item-matcha {
+    left: 12%;
+    top: 45%;
+}
+#item-sbag {
+    right: 22%;
+    bottom: 20%;
+}
+
+#collect-flash {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 22px;
+    color: #f5e6c8;
+    background: rgba(80, 50, 10, 0.85);
+    padding: 8px 24px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 30;
+    pointer-events: none;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+#collect-flash.show { opacity: 1; }
+
+.Startcomponents {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 38px;
+    z-index: 20;
+}
+.Coin-button {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background-image: url("../assets/coin.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.Coin-button:hover { transform: scale(1.1); }
+.Collect-button {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background-image: url("../assets/Collects.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.Collect-button:hover { transform: scale(1.1); }
+.Tools-button {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background-image: url("../assets/Tools.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.Tools-button:hover { transform: scale(1.1); }
