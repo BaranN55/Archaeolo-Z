@@ -12,20 +12,38 @@
     <div class="Startcomponents">
         <h1>Archaeolo-Z</h1>
         <a href="game.html" class="Start-button" id="start-btn"></a>
-        <a href="about.html" class="About-button"></a>
-        <a href="credits.html" class="Cred-button"></a>
+        <a href="about.html" class="About-button" id="about-btn"></a>
+        <a href="credits.html" class="Cred-button" id="cred-btn"></a>
     </div>
 
     <script>
+        const clickSound = new Audio('../assets/clicksound.mp3');
+
         document.getElementById('start-btn').addEventListener('click', function(e) {
             e.preventDefault();
+            clickSound.currentTime = 0;
+            clickSound.play();
             localStorage.removeItem('coins');
             localStorage.removeItem('collected');
             localStorage.removeItem('sold');
             localStorage.removeItem('tools');
             sessionStorage.removeItem('music_pos');
             sessionStorage.removeItem('music_muted');
-            window.location.href = 'game.html';
+            setTimeout(() => { window.location.href = 'game.html'; }, 150);
+        });
+
+        document.getElementById('about-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            clickSound.currentTime = 0;
+            clickSound.play();
+            setTimeout(() => { window.location.href = 'about.html'; }, 150);
+        });
+
+        document.getElementById('cred-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            clickSound.currentTime = 0;
+            clickSound.play();
+            setTimeout(() => { window.location.href = 'credits.html'; }, 150);
         });
     </script>
     <script src="music.js"></script>

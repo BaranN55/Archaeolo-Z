@@ -1,29 +1,18 @@
 // nav.js — inject persistent side buttons on every game page
-// Include this script (after gamestate.js) on every page that should show the nav.
-// It auto-detects the current page and sets the correct back-links.
 
 (function () {
-    // ── Determine which level's pages to link to ──────────────
     const page = window.location.pathname.split('/').pop().toLowerCase();
 
-    // Map each page to its coin / collect / tool destinations
     const NAV_MAP = {
-        // Level 1
         'game.html':     { coin: 'coin.html',  collect: 'collect.html',  tool: 'tool.html'  },
-        // Quiz (between L1 and L2)
         'quiz.html':     { coin: 'coin2.html', collect: 'collect2.html', tool: 'tool2.html' },
-        // Level 2
         'game2.html':    { coin: 'coin3.html', collect: 'collect3.html', tool: 'tool3.html' },
-        // Level 3 / 67 pose
         'game3.html':    { coin: 'coin3.html', collect: 'collect3.html', tool: 'tool3.html' },
         '67.html':       { coin: 'coin3.html', collect: 'collect3.html', tool: 'tool3.html' },
-        // Level 4
         'game4.html':    { coin: 'coin4.html', collect: 'collect4.html', tool: 'tool4.html' },
-        // Level 5
         'game5.html':    { coin: 'coin5.html', collect: 'collect5.html', tool: 'tool5.html' },
     };
 
-    // Coin / collect / tool pages themselves — show nav pointing back to same level
     const SIDE_PAGE_MAP = {
         'coin.html':      { coin: 'coin.html',  collect: 'collect.html',  tool: 'tool.html'  },
         'collect.html':   { coin: 'coin.html',  collect: 'collect.html',  tool: 'tool.html'  },
@@ -43,7 +32,7 @@
     };
 
     const links = NAV_MAP[page] || SIDE_PAGE_MAP[page];
-    if (!links) return; // don't inject on index, about, credits etc.
+    if (!links) return;
 
     // ── Inject CSS ────────────────────────────────────────────
     const style = document.createElement('style');
@@ -78,6 +67,16 @@
     `;
     document.head.appendChild(style);
 
+    const coinSound  = new Audio('../assets/coinsound.mp3');
+    const clickSound = new Audio('../assets/clicksound.mp3');
+
+    // Play sound then navigate after short delay so sound has time to fire
+    function playAndGo(sound, href) {
+        sound.currentTime = 0;
+        sound.play().catch(() => {});
+        setTimeout(() => { window.location.href = href; }, 150);
+    }
+
     // ── Inject HTML ───────────────────────────────────────────
     function injectNav() {
         const existing = document.getElementById('persistent-nav');
@@ -86,42 +85,38 @@
         const nav = document.createElement('div');
         nav.id = 'persistent-nav';
         nav.innerHTML = `
-            <a href="${links.coin}"    class="nav-btn nav-btn-coin"    title="Coins"></a>
-            <a href="${links.collect}" class="nav-btn nav-btn-collect" title="Collection"></a>
-            <a href="${links.tool}"    class="nav-btn nav-btn-tool"    title="Tools"></a>
+            <a class="nav-btn nav-btn-coin"    title="Coins"></a>
+            <a class="nav-btn nav-btn-collect" title="Collection"></a>
+            <a class="nav-btn nav-btn-tool"    title="Tools"></a>
         `;
         document.body.appendChild(nav);
 
-        nav.querySelectorAll('a').forEach(a => {
-            if (a.getAttribute('href') === page) {
-                a.style.outline = '3px solid #C8A582';
-                a.style.outlineOffset = '3px';
+        const [coinBtn, collectBtn, toolBtn] = nav.querySelectorAll('a');
+
+        // Highlight current page button
+        [coinBtn, collectBtn, toolBtn].forEach((btn, i) => {
+            const href = [links.coin, links.collect, links.tool][i];
+            if (href === page) {
+                btn.style.outline = '3px solid #C8A582';
+                btn.style.outlineOffset = '3px';
             }
         });
-    }
 
-    const coinSound  = new Audio('../assets/coinsound.mp3');
-    const clickSound = new Audio('../assets/clicksound.mp3');
-
-    function addNavSounds() {
-        const nav = document.getElementById('persistent-nav');
-        if (!nav) return;
-        nav.querySelector('.nav-btn-coin').addEventListener('click', () => {
-            coinSound.currentTime = 0;
-            coinSound.play();
+        // Wire up sounds + navigation (preventDefault stops instant nav, delay lets sound play)
+        coinBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            playAndGo(coinSound, links.coin);
         });
-        nav.querySelector('.nav-btn-collect').addEventListener('click', () => {
-            clickSound.currentTime = 0;
-            clickSound.play();
+        collectBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            playAndGo(clickSound, links.collect);
         });
-        nav.querySelector('.nav-btn-tool').addEventListener('click', () => {
-            clickSound.currentTime = 0;
-            clickSound.play();
+        toolBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            playAndGo(clickSound, links.tool);
         });
     }
 
-    // Inject immediately + re-inject on back/forward navigation (bfcache restore)
     injectNav();
-    addNavSounds();
-    window.addEventListener('pageshow', () => { injectNav(); addNavSounds(); });
+    window.addEventListener('pageshow', () => { injectNav(); });
 })();

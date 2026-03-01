@@ -98,3 +98,27 @@
 
     document.body.appendChild(btn);
 })();
+// ── Global click sounds for Discard buttons (runs on every page) ──
+(function () {
+    const clickSnd = new Audio('../assets/clicksound.mp3');
+
+    function attachDiscardSounds() {
+        document.querySelectorAll('.Discard-button').forEach(btn => {
+            // avoid double-attaching
+            if (btn.dataset.soundAttached) return;
+            btn.dataset.soundAttached = '1';
+            btn.addEventListener('click', () => {
+                clickSnd.currentTime = 0;
+                clickSnd.play();
+            });
+        });
+    }
+
+    // Run on load and on bfcache restore
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', attachDiscardSounds);
+    } else {
+        attachDiscardSounds();
+    }
+    window.addEventListener('pageshow', attachDiscardSounds);
+})();
