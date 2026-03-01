@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("../assets/L4bg.png");
+    background-size: cover;
+    background-position: center;
+    font-family: "Caesar Dressing", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    overflow: hidden;
+}
+
+/* Next level bg fade */
+#next-bg-overlay {
+    position: fixed;
+    inset: 0;
+    background-image: url("../assets/L5bg.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Collect hint */
+#collect-hint {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    color: #C8A582;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    z-index: 10;
+    transition: opacity 0.5s ease;
+    white-space: nowrap;
+}
+#collect-hint.hidden { opacity: 0; pointer-events: none; }
+
+/* Collectibles */
+.collectible {
+    position: fixed;
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease, opacity 0.4s ease;
+    filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.5));
+}
+.collectible:hover { transform: scale(1.12); }
+.collectible.collected { opacity: 0; pointer-events: none; }
+
+#item-dubaic    { left: 15%; top: 40%; }
+#item-ballerinac { right: 20%; bottom: 22%; }
+
+/* Flash message */
+#collect-flash {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 22px;
+    color: #f5e6c8;
+    background: rgba(80, 20, 10, 0.88);
+    padding: 8px 24px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 30;
+    pointer-events: none;
+}
+#collect-flash.show { opacity: 1; }
+
+/* ── Drill digging overlay ── */
+#drill-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#drill-overlay.visible { display: flex; }
+
+#drill-intro-text {
+    font-size: 32px;
+    color: #C8A582;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    margin-bottom: 30px;
+    transition: opacity 0.5s ease;
+}
+
+#drill-img {
+    width: 160px;
+    height: auto;
+    transition: opacity 0.5s ease;
+}
+
+/* "Need a tool" warning */
+#need-tool-msg {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 26px;
+    color: #e84a4a;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    z-index: 40;
+    line-height: 1.6;
+}

@@ -17,6 +17,8 @@
         // Level 3 / 67 pose
         'game3.html':    { coin: 'coin3.html', collect: 'collect3.html', tool: 'tool3.html' },
         '67.html':       { coin: 'coin3.html', collect: 'collect3.html', tool: 'tool3.html' },
+        // Level 4
+        'game4.html':    { coin: 'coin4.html', collect: 'collect4.html', tool: 'tool4.html' },
     };
 
     // Coin / collect / tool pages themselves — show nav pointing back to same level
@@ -30,6 +32,9 @@
         'coin3.html':     { coin: 'coin3.html', collect: 'collect3.html', tool: 'tool3.html' },
         'collect3.html':  { coin: 'coin3.html', collect: 'collect3.html', tool: 'tool3.html' },
         'tool3.html':     { coin: 'coin3.html', collect: 'collect3.html', tool: 'tool3.html' },
+        'coin4.html':     { coin: 'coin4.html', collect: 'collect4.html', tool: 'tool4.html' },
+        'collect4.html':  { coin: 'coin4.html', collect: 'collect4.html', tool: 'tool4.html' },
+        'tool4.html':     { coin: 'coin4.html', collect: 'collect4.html', tool: 'tool4.html' },
     };
 
     const links = NAV_MAP[page] || SIDE_PAGE_MAP[page];

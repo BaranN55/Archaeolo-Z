@@ -67,6 +67,22 @@ const ITEMS = {
         description: '"67" had no fixed meaning. Its power came from being meaningless — repeated so often it became one of the most iconic expressions of Gen Z\'s online language.',
         coins: 0,
         sellable: false
+    },
+    dubaic: {
+        id: 'dubaic',
+        name: 'Budai Chocolate',
+        image: '../assets/dubaic.png',
+        description: 'Originally a filled chocolate bar turned into well…anything and everything. If it exists, it can be budai chocolate.',
+        coins: 250,
+        sellable: true
+    },
+    ballerinac: {
+        id: 'ballerinac',
+        name: 'Ballerina Cappuccina',
+        image: '../assets/ballerinac.png',
+        description: 'A viral, AI-generated "Italian brain rot" meme popular with children on TikTok; Ballerina cappuccina Mi Mi Miiiii.',
+        coins: 350,
+        sellable: true
     }
 };
 
