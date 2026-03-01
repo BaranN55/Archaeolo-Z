@@ -18,6 +18,9 @@ let shovelPresses = 0;
 let shovelSwinging = false;
 let shovelDone   = false;
 
+const shovelSound = new Audio('../assets/axesound.mp3');
+const clickSound  = new Audio('../assets/clicksound.mp3');
+
 // ── Flash message ─────────────────────────────────────────────
 function showFlash(msg) {
     flashEl.textContent = msg;
@@ -78,6 +81,9 @@ document.addEventListener('keydown', (e) => {
     e.preventDefault();
 
     if (!shovelPhase || shovelDone || shovelSwinging) return;
+
+    shovelSound.currentTime = 0;
+    shovelSound.play();
 
     shovelSwinging = true;
     shovelPresses++;

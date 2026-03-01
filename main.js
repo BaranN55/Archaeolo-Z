@@ -13,12 +13,17 @@ const sideButtons = document.getElementById('side-buttons');
 const PICKAXE_UP   = '../assets/Axeup.png';
 const PICKAXE_DOWN = '../assets/Axedown.png';
 
+const axeSound = new Audio('../assets/axesound.mp3');
+
 document.addEventListener('keydown', (e) => {
     if (e.code !== 'Space') return;
     e.preventDefault(); // prevent page scroll
 
     if (diggingDone || isSwinging) return;
 
+    axeSound.currentTime = 0;
+    axeSound.play();
+    
     isSwinging = true;
     presses++;
 

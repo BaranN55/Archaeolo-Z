@@ -2,6 +2,7 @@
 
 const grid     = document.getElementById('items-grid');
 const emptyMsg = document.getElementById('empty-msg');
+const purchaseSound = new Audio('../assets/purchasesound.mp3');
 
 function buildCards() {
     const collected = GameState.getCollected();
@@ -53,6 +54,8 @@ function buildCards() {
         if (sellable && !sold) {
             const btn = card.querySelector('.sell-btn');
             btn.addEventListener('click', () => {
+                purchaseSound.currentTime = 0;
+                purchaseSound.play();
                 GameState.addSold(id);
                 GameState.addCoins(item.coins);
                 btn.textContent = 'Sold';

@@ -123,6 +123,8 @@ let axePresses  = 0;
 let axeSwinging = false;
 let axeDone     = false;
 
+const axeSound = new Audio('../assets/axesound.mp3');
+
 function startAxePhase() {
     // Fade out paper
     quizWrapper.classList.add('hidden');
@@ -140,6 +142,9 @@ document.addEventListener('keydown', (e) => {
 
     if (!axePhase || axeDone || axeSwinging) return;
 
+    axeSound.currentTime = 0;
+    axeSound.play();
+    
     axeSwinging = true;
     axePresses++;
 

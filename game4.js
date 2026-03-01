@@ -18,6 +18,9 @@ let drillPresses  = 0;
 let drillSwinging = false;
 let drillDone     = false;
 
+const drillSound = new Audio('../assets/drillsound.mp3');
+const clickSound = new Audio('../assets/clicksound.mp3');
+
 // ── Flash message ─────────────────────────────────────────────
 function showFlash(msg) {
     flashEl.textContent = msg;
@@ -77,6 +80,9 @@ document.addEventListener('keydown', (e) => {
 
     drillSwinging = true;
     drillPresses++;
+    
+    drillSound.currentTime = 0;
+    drillSound.play();
 
     drillImg.src = DRILL_DOWN;
 

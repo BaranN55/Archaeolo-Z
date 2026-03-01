@@ -3,6 +3,8 @@
 const grid       = document.getElementById('tools-grid');
 const noCoinsMsg = document.getElementById('no-coins-msg');
 
+const purchaseSound = new Audio('../assets/purchasesound.mp3');
+
 function buildTools() {
     grid.innerHTML = '';
     const currentCoins = GameState.getCoins();
@@ -37,6 +39,8 @@ function buildTools() {
         const btn = card.querySelector('.buy-btn');
         if (!owned && canAfford) {
             btn.addEventListener('click', () => {
+                purchaseSound.currentTime = 0;
+                purchaseSound.play();
                 GameState.spendCoins(tool.coins);
                 GameState.buyTool(tool.id);
                 // Update button to owned

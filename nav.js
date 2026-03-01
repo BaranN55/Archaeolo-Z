@@ -100,8 +100,28 @@
         });
     }
 
+    const coinSound  = new Audio('../assets/coinsound.mp3');
+    const clickSound = new Audio('../assets/clicksound.mp3');
+
+    function addNavSounds() {
+        const nav = document.getElementById('persistent-nav');
+        if (!nav) return;
+        nav.querySelector('.nav-btn-coin').addEventListener('click', () => {
+            coinSound.currentTime = 0;
+            coinSound.play();
+        });
+        nav.querySelector('.nav-btn-collect').addEventListener('click', () => {
+            clickSound.currentTime = 0;
+            clickSound.play();
+        });
+        nav.querySelector('.nav-btn-tool').addEventListener('click', () => {
+            clickSound.currentTime = 0;
+            clickSound.play();
+        });
+    }
+
     // Inject immediately + re-inject on back/forward navigation (bfcache restore)
     injectNav();
-    window.addEventListener('pageshow', () => injectNav());
-
+    addNavSounds();
+    window.addEventListener('pageshow', () => { injectNav(); addNavSounds(); });
 })();
