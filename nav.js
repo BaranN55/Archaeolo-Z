@@ -52,7 +52,7 @@
             flex-direction: column;
             align-items: center;
             gap: 38px;
-            z-index: 9999;
+            z-index: 100000;
         }
         .nav-btn {
             display: block;
